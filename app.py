@@ -397,22 +397,21 @@ st.markdown(
 @st.cache_resource
 def create_mongo_connection():
     if not MONGO_URI:
-        return None, "MONGO_URI is missing from secrets.toml"
+        return None, "MONGO_URI is missing from Streamlit secrets."
 
     try:
         client = MongoClient(
             MONGO_URI,
-            serverSelectionTimeoutMS=5000,
+            serverSelectionTimeoutMS=10000,
         )
 
-        # Explicit connection test.
-
         client.admin.command("ping")
+
         return client["smartspend"], None
 
     except Exception as exc:
-        return None, str(exc)
-
+        return None, f"{type(exc).__name__}: {exc}"
+    
 @st.cache_resource
 def create_gemini_connection():
     if not GEMINI_API_KEY:
@@ -1372,8 +1371,8 @@ def page_title(title, description):
 
 def show_connection_status():
     if db_error:
-        st.sidebar.warning(
-            "MongoDB is not connected."
+        st.sidebar.error(
+            f"MongoDB connection failed:\n\n{db_error}"
         )
 
     if gemini_error:
