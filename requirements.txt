@@ -1,0 +1,7 @@
+streamlit
+google-genai
+pymongo
+pandas
+plotly
+pillow
+requests
