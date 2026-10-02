@@ -2,6 +2,12 @@
 
 SmartSpend is an AI-powered personal finance application that helps users record, analyze, and manage their daily expenses.
 
+
+## 🌐 Live Demo
+
+🚀 Deployed on Streamlit:
+https://ai-powered-receipt-expense-tracker.streamlit.app/
+
 ## 🚀 Features
 
 - 🔐 User authentication with hashed passwords
@@ -175,6 +181,9 @@ SmartSpend can send receipt information and monthly spending summaries through T
 ### Communication
 - Telegram Bot API
 - Requests
+
+### Deployment
+- Streamlit Community Cloud
 
 ### Development
 - Git
